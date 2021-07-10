@@ -1,25 +1,46 @@
-html {
-  height: 100%;
-}
-
 body {
-  --text-primary: #ECF1ED;
-  --text-secondary: #D4D4D4;
-  --text-tertiary: #5B6886;
-  --background-primary: #2e364e;
-  --background-secondary: #232D48;
-  --background-tertiary: #192036;
-  --border-radius: 18px;
-  position: relative;
-  min-height: 100%;
-  background-color: #232D48;
-  padding: 0 0 60px 0;
-  margin: 40px;
+  --border-radius: 8px;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
   font-size: 16px;
 }
 
-body h1, body h2, body h3, body h4 {
-  font-family: 'Nunito';
+body.theme-dark {
+  --text-primary: #ECF1ED;
+  --text-secondary: #D4D4D4;
+  --text-tertiary: #5B6886;
+  --background-primary: #23283d;
+  --background-secondary: #1e2233;
+  --background-tertiary: #101320;
+}
+
+body.theme-light {
+  --text-primary: #ECF1ED;
+  --text-secondary: #D4D4D4;
+  --text-tertiary: #5B6886;
+  --background-primary: #23283d;
+  --background-secondary: #1e2233;
+  --background-tertiary: #101320;
+}
+
+body h1, body h2, body h3, body h4, body div, body ::-webkit-input-placeholder {
+  font-family: 'Inter';
+  margin: 0;
+}
+
+body h1, body h2, body h3, body h4, body div, body :-ms-input-placeholder {
+  font-family: 'Inter';
+  margin: 0;
+}
+
+body h1, body h2, body h3, body h4, body div, body ::-ms-input-placeholder {
+  font-family: 'Inter';
+  margin: 0;
+}
+
+body h1, body h2, body h3, body h4, body div, body ::placeholder {
+  font-family: 'Inter';
   margin: 0;
 }
 
@@ -36,32 +57,291 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: var(--background-primary);
+  background-color: var(--background-secondary);
 }
 
 body header {
-  position: relative;
-  margin: 0 auto 20px auto;
-  width: 450px;
-  height: 110px;
-  background-color: var(--background-primary);
+  height: 100vh;
+  background: url(/stuff/background.png);
+}
+
+body header > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: -webkit-gradient(linear, left top, left bottom, from(#00000000), to(var(--background-tertiary)));
+  background: linear-gradient(#00000000, var(--background-tertiary));
+}
+
+body header > div #popout {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 400px;
+  background-color: var(--background-tertiary);
   border-radius: var(--border-radius);
+  overflow: hidden;
   -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  -webkit-animation: left 800ms;
+          animation: left 800ms;
+}
+
+@-webkit-keyframes left {
+  0% {
+    margin-top: 200px;
+    opacity: 0;
+  }
+  100% {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes left {
+  0% {
+    margin-top: 200px;
+    opacity: 0;
+  }
+  100% {
+    margin-top: 0;
+    opacity: 1;
+  }
+}
+
+body header > div #popout .popout-header {
+  width: 100%;
+  height: 13%;
+  min-height: 140px;
+  background: url(/stuff/banner.gif) center/cover no-repeat;
+}
+
+body header > div #popout .popout-body {
+  position: relative;
+  margin: 0 20px;
+}
+
+body header > div #popout .popout-body .avatar {
+  position: absolute;
+  top: -60px;
+  left: 0;
+  width: 100px;
+  height: auto;
+}
+
+body header > div #popout .popout-body .avatar > :first-child {
+  width: 100%;
+  height: 100%;
+}
+
+body header > div #popout .popout-body .avatar .status {
+  position: absolute;
+  bottom: -5px;
+  right: -5px;
+  width: 25px;
+  height: 25px;
+  background: url("https://discord.c99.nl/widget/theme-4/265924886461939712.png") no-repeat;
+  background-position: -130px -129px;
+  background-size: 900px;
+  border-radius: 50%;
+  border: 3px solid var(--background-tertiary);
+}
+
+body header > div #popout .popout-body .username {
+  color: var(--text-primary);
+  margin-top: 75px;
+}
+
+body header > div #popout .popout-body #badgeList {
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  top: 20px;
+  right: 0;
+}
+
+body header > div #popout .popout-body #badgeList .badge {
+  width: 23px;
+  height: 23px;
+  margin-right: 13px;
+}
+
+body header > div #popout .popout-body #badgeList .badge img {
+  width: 100%;
+  height: 100%;
+}
+
+body header > div #popout .popout-body #badgeList .badge:last-child {
+  margin-right: 0;
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+body header > div #popout .popout-body .about-me {
+  font-weight: lighter;
+  color: var(--text-secondary);
+  margin-top: 8px;
+}
+
+body header > div #popout .popout-body .activity {
+  position: relative;
+  margin-top: 40px;
+  padding: 10px;
+  background-color: #7289da;
+  border-radius: 0 0 8px 8px;
+}
+
+body header > div #popout .popout-body .activity div {
+  width: 100%;
+  height: 50px;
+  background: url("https://discord.c99.nl/widget/theme-4/265924886461939712.png") no-repeat;
+  background-position: -95px -30px;
+  background-size: 130%;
+}
+
+body header > div #popout .popout-body .activity::after {
+  content: "";
+  position: absolute;
+  top: -20px;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background: url(./stuff/wave_playing.png);
+  background-size: 100% 20px;
+  -webkit-animation: animate 6s linear infinite;
+          animation: animate 6s linear infinite;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  opacity: 1;
+}
+
+@-webkit-keyframes animate {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 360px;
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: 0;
+  }
+  100% {
+    background-position-x: 360px;
+  }
+}
+
+body header > div #popout .popout-body .activity::before {
+  content: "";
+  position: absolute;
+  height: 20px;
+  width: 100%;
+  top: -20px;
+  left: 0;
+  background: url("https://nyri4.github.io/Comfy/assets/wave.png");
+  background-size: 100% 20px;
+  -webkit-animation: animate2 4s linear infinite;
+          animation: animate2 4s linear infinite;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  opacity: 1;
+}
+
+@-webkit-keyframes animate2 {
+  0% {
+    background-position-x: 360px;
+  }
+  100% {
+    background-position-x: 0;
+  }
+}
+
+@keyframes animate2 {
+  0% {
+    background-position-x: 360px;
+  }
+  100% {
+    background-position-x: 0;
+  }
+}
+
+body header > div #popout .popout-body .roles {
+  margin-top: 20px;
+}
+
+body header > div #popout .popout-body .roles h4 {
+  color: var(--text-primary);
+}
+
+body header > div #popout .popout-body .roles #roleList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: 15px;
+  color: var(--text-primary);
+}
+
+body header > div #popout .popout-body .roles #roleList .role {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  height: 12px;
+  margin: 0 6px 6px 0;
+  padding: 7px;
+  border: solid;
+  border-width: 0 0 0 3px;
+  border-radius: 1px 3px 3px 1px;
+  font-size: 0.85rem;
 }
 
-body header #avatar {
-  width: 95%;
-  height: auto;
+body header > div #popout .popout-body .roles #roleList .role img {
+  height: 30px;
+  margin: -15px 5px 0 0;
+}
+
+body header > div #popout .popout-footer {
+  margin: 20px;
+}
+
+body header > div #popout .popout-footer input {
+  width: calc(100% - 16px);
+  height: 40px;
+  background-color: var(--background-secondary);
+  border: none;
+  padding: 10px;
+  border-radius: var(--border-radius);
+  color: var(--text-primary);
+  font-size: 0.85rem;
+}
+
+body header > div #popout .popout-footer input:focus {
+  outline: none;
+}
+
+body main {
+  padding: 30px 30px 0.5px 30px;
+  background-color: var(--background-tertiary);
 }
 
 body main #themes-header {
@@ -107,7 +387,7 @@ body main #themes .theme {
   position: relative;
   max-width: 700px;
   color: var(--text-secondary);
-  background-color: var(--background-primary);
+  background-color: var(--background-secondary);
   border-radius: var(--border-radius);
   -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
@@ -185,7 +465,7 @@ body main #spotify .spotify {
       -ms-flex-align: center;
           align-items: center;
   color: var(--text-secondary);
-  background-color: var(--background-primary);
+  background-color: var(--background-secondary);
   border-radius: var(--border-radius);
   -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
           box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
@@ -201,40 +481,5 @@ body main #spotify .spotify img {
 body main #spotify .spotify h2 {
   margin-left: 15px;
   margin-top: 5px;
-}
-
-body footer {
-  position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 25px;
-  margin: 0 -40px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: space-evenly;
-      -ms-flex-pack: space-evenly;
-          justify-content: space-evenly;
-  color: var(--text-secondary);
-  background-color: var(--background-tertiary);
-}
-
-body footer div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-body footer img {
-  width: 30px;
-  height: 30px;
-  margin-right: 15px;
 }
 /*# sourceMappingURL=main.css.map */
