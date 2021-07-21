@@ -62,7 +62,7 @@ body::-webkit-scrollbar-thumb {
 
 body header {
   height: 100vh;
-  background: url(/stuff/background.png);
+  background: url(/stuff/background.jpg);
 }
 
 body header > div {
