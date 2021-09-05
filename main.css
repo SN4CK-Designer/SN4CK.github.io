@@ -199,17 +199,13 @@ body header > div #popout .popout-body .about-me {
 body header > div #popout .popout-body .activity {
   position: relative;
   margin-top: 40px;
-  padding: 10px;
   background-color: #7289da;
   border-radius: 0 0 8px 8px;
 }
 
-body header > div #popout .popout-body .activity div {
+body header > div #popout .popout-body .activity img {
   width: 100%;
-  height: 50px;
-  background: url("https://discord.c99.nl/widget/theme-4/265924886461939712.png") no-repeat;
-  background-position: -95px -30px;
-  background-size: 130%;
+  height: auto;
 }
 
 body header > div #popout .popout-body .activity::after {
