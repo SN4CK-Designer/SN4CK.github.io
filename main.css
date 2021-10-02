@@ -191,7 +191,7 @@ body header > div #popout .popout-body .activity::after {
   width: 100%;
   height: 20px;
   background: url("./stuff/wave_playing.svg");
-  background-size: 163px 24px;
+  background-size: 100% 21px;
   -webkit-animation: animate 6s linear infinite;
           animation: animate 6s linear infinite;
   -webkit-animation-delay: 0s;
@@ -203,7 +203,7 @@ body header > div #popout .popout-body .activity::after {
     background-position-x: 0;
   }
   100% {
-    background-position-x: 163px;
+    background-position-x: 360px;
   }
 }
 @keyframes animate {
@@ -211,7 +211,7 @@ body header > div #popout .popout-body .activity::after {
     background-position-x: 0;
   }
   100% {
-    background-position-x: 163px;
+    background-position-x: 360px;
   }
 }
 body header > div #popout .popout-body .activity::before {
@@ -222,7 +222,7 @@ body header > div #popout .popout-body .activity::before {
   top: -20px;
   left: 0;
   background: url("./stuff/wave.svg");
-  background-size: 163px 24px;
+  background-size: 100% 21px;
   -webkit-animation: animate2 4s linear infinite;
           animation: animate2 4s linear infinite;
   -webkit-animation-delay: 0s;
@@ -231,7 +231,7 @@ body header > div #popout .popout-body .activity::before {
 }
 @-webkit-keyframes animate2 {
   0% {
-    background-position-x: 163px;
+    background-position-x: 360px;
   }
   100% {
     background-position-x: 0;
@@ -239,7 +239,7 @@ body header > div #popout .popout-body .activity::before {
 }
 @keyframes animate2 {
   0% {
-    background-position-x: 163px;
+    background-position-x: 360px;
   }
   100% {
     background-position-x: 0;
