@@ -57,22 +57,15 @@ body {
     header {
         position: relative;
         z-index: 1;
-        height: 100vh;
+        height: 100vh; min-height: 850px;
         background: url(/stuff/background.jpg);
+        pointer-events: none;
 
         & > div {
             display: flex;
             width: 100%; height: 100%;
             justify-content: center;
             background: linear-gradient(transparent 0%, transparent 70%, var(--background-tertiary) 100%);
-
-            @media (max-height: 810px) {
-                #popout {
-                    top: 0 !important;
-                    transform: scale(0.9);
-                    animation: top 800ms, scale 200ms linear !important;
-                }
-            }
 
             #popout {
                 position: absolute; display: flex;
@@ -81,7 +74,7 @@ body {
                 background-color: var(--background-tertiary);
                 border-radius: var(--border-radius);
                 overflow: hidden;
-                box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+                box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
                 animation: top 800ms;
 
                 @keyframes top { 0% { margin-top: 200px; opacity: 0;} 100% { margin-top: 0; opacity: 1;}}
@@ -217,6 +210,7 @@ body {
                         border: none; padding: 10px;
                         border-radius: var(--border-radius);
                         color: var(--text-primary); font-size: 0.85rem;
+                        pointer-events: initial;
 
                         &:focus { outline: none;}
                     }
@@ -261,7 +255,7 @@ body {
                 color: var(--text-secondary);
                 background-color: var(--background-secondary);
                 border-radius: var(--border-radius);
-                box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+                box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
                 overflow: hidden;
 
                 img { width: 100%; height: 100%;}
@@ -310,7 +304,7 @@ body {
                 color: var(--text-secondary);
                 background-color: var(--background-secondary);
                 border-radius: var(--border-radius);
-                box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+                box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
                 overflow: hidden; transition: 0.15s;
 
                 img { height: 100%;}
