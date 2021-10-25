@@ -21,24 +21,8 @@ body.theme-light {
   --background-secondary: #1e2233;
   --background-tertiary: #101320;
 }
-body ::-webkit-input-placeholder {
-  font-family: "Inter";
-  margin: 0;
-}
-body ::-moz-placeholder {
-  font-family: "Inter";
-  margin: 0;
-}
-body :-ms-input-placeholder {
-  font-family: "Inter";
-  margin: 0;
-}
-body ::-ms-input-placeholder {
-  font-family: "Inter";
-  margin: 0;
-}
 body h1, body h2, body h3, body h4, body div, body ::placeholder {
-  font-family: "Inter";
+  font-family: "Inter", serif;
   margin: 0;
 }
 body a {
@@ -54,42 +38,39 @@ body::-webkit-scrollbar-thumb {
   background-color: var(--background-secondary);
 }
 body header {
+  position: relative;
+  z-index: 1;
   height: 100vh;
   background: url(/stuff/background.jpg);
 }
 body header > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 100%;
   height: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: -webkit-gradient(linear, left top, left bottom, from(#00000000), to(var(--background-tertiary)));
-  background: linear-gradient(#00000000, var(--background-tertiary));
+  justify-content: center;
+  background: linear-gradient(transparent 0%, transparent 70%, var(--background-tertiary) 100%);
+}
+@media (max-height: 810px) {
+  body header > div #popout {
+    top: 0 !important;
+    transform: scale(0.9);
+    animation: top 800ms, scale 200ms linear !important;
+  }
 }
 body header > div #popout {
-  display: -webkit-box;
-  display: -ms-flexbox;
+  position: absolute;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
+  top: 50px;
   width: 400px;
+  z-index: -1;
   background-color: var(--background-tertiary);
   border-radius: var(--border-radius);
   overflow: hidden;
-  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
-  -webkit-animation: left 800ms;
-          animation: left 800ms;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  animation: top 800ms;
 }
-@-webkit-keyframes left {
+@keyframes top {
   0% {
     margin-top: 200px;
     opacity: 0;
@@ -99,21 +80,19 @@ body header > div #popout {
     opacity: 1;
   }
 }
-@keyframes left {
+@keyframes scale {
   0% {
-    margin-top: 200px;
-    opacity: 0;
+    transform: scale(1);
   }
   100% {
-    margin-top: 0;
-    opacity: 1;
+    transform: scale(0.9);
   }
 }
 body header > div #popout .popout-header {
   width: 100%;
   height: 13%;
   min-height: 140px;
-  background: url(/stuff/banner.gif) center/cover no-repeat;
+  background: url(https://i.imgur.com/hGq0tR0.gif) center/cover no-repeat;
 }
 body header > div #popout .popout-body {
   position: relative;
@@ -136,8 +115,7 @@ body header > div #popout .popout-body .avatar .status {
   right: -5px;
   width: 25px;
   height: 25px;
-  background: url("https://discord.c99.nl/widget/theme-4/265924886461939712.png") no-repeat;
-  background-position: -130px -129px;
+  background: url("https://discord.c99.nl/widget/theme-4/265924886461939712.png") no-repeat -130px -129px;
   background-size: 900px;
   border-radius: 50%;
   border: 3px solid var(--background-tertiary);
@@ -148,8 +126,6 @@ body header > div #popout .popout-body .username {
 }
 body header > div #popout .popout-body #badgeList {
   position: absolute;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   top: 20px;
   right: 0;
@@ -165,8 +141,7 @@ body header > div #popout .popout-body #badgeList .badge img {
 }
 body header > div #popout .popout-body #badgeList .badge:last-child {
   margin-right: 0;
-  -webkit-transform: scale(1.15);
-          transform: scale(1.15);
+  transform: scale(1.15);
 }
 body header > div #popout .popout-body .about-me {
   font-weight: lighter;
@@ -189,22 +164,12 @@ body header > div #popout .popout-body .activity::after {
   top: -20px;
   left: 0;
   width: 100%;
-  height: 20px;
+  height: 21px;
   background: url("./stuff/wave_playing.svg");
   background-size: 100% 21px;
-  -webkit-animation: animate 6s linear infinite;
-          animation: animate 6s linear infinite;
-  -webkit-animation-delay: 0s;
-          animation-delay: 0s;
+  animation: animate 6s linear infinite;
+  animation-delay: 0s;
   opacity: 1;
-}
-@-webkit-keyframes animate {
-  0% {
-    background-position-x: 0;
-  }
-  100% {
-    background-position-x: 360px;
-  }
 }
 @keyframes animate {
   0% {
@@ -217,25 +182,15 @@ body header > div #popout .popout-body .activity::after {
 body header > div #popout .popout-body .activity::before {
   content: "";
   position: absolute;
-  height: 20px;
+  height: 21px;
   width: 100%;
-  top: -20px;
+  top: -21px;
   left: 0;
   background: url("./stuff/wave.svg");
   background-size: 100% 21px;
-  -webkit-animation: animate2 4s linear infinite;
-          animation: animate2 4s linear infinite;
-  -webkit-animation-delay: 0s;
-          animation-delay: 0s;
+  animation: animate2 4s linear infinite;
+  animation-delay: 0s;
   opacity: 1;
-}
-@-webkit-keyframes animate2 {
-  0% {
-    background-position-x: 360px;
-  }
-  100% {
-    background-position-x: 0;
-  }
 }
 @keyframes animate2 {
   0% {
@@ -252,22 +207,15 @@ body header > div #popout .popout-body .roles h4 {
   color: var(--text-primary);
 }
 body header > div #popout .popout-body .roles #roleList {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  flex-wrap: wrap;
   margin-top: 15px;
   color: var(--text-primary);
 }
 body header > div #popout .popout-body .roles #roleList .role {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   height: 12px;
   margin: 0 6px 6px 0;
   padding: 7px;
@@ -297,6 +245,8 @@ body header > div #popout .popout-footer input:focus {
   outline: none;
 }
 body main {
+  position: relative;
+  z-index: 1;
   padding: 30px 30px 0.5px 30px;
   background-color: var(--background-tertiary);
 }
@@ -304,8 +254,6 @@ body main #themes-header {
   margin-bottom: 20px;
 }
 body main #themes-header > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 body main #themes-header > div img {
@@ -326,7 +274,6 @@ body main #themes-header .separator {
   border-radius: var(--border-radius);
 }
 body main #themes {
-  display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   grid-gap: 25px;
@@ -338,8 +285,7 @@ body main #themes .theme {
   color: var(--text-secondary);
   background-color: var(--background-secondary);
   border-radius: var(--border-radius);
-  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
   overflow: hidden;
 }
 body main #themes .theme img {
@@ -353,10 +299,8 @@ body main #themes .theme h2 {
   right: 0;
   padding: 10px 0 10px 15px;
   background-color: #00000036;
-  -webkit-backdrop-filter: blur(5px);
-          backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
   border-radius: 0 0 var(--border-radius) var(--border-radius);
-  -webkit-transition: bottom 0.15s;
   transition: bottom 0.15s;
 }
 body main #themes .theme:hover h2 {
@@ -366,8 +310,6 @@ body main #spotify-header {
   margin-bottom: 20px;
 }
 body main #spotify-header > div {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 body main #spotify-header > div img {
@@ -388,27 +330,20 @@ body main #spotify-header .separator {
   border-radius: var(--border-radius);
 }
 body main #spotify {
-  display: -ms-grid;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
   grid-gap: 25px;
   margin-bottom: 40px;
 }
 body main #spotify .spotify {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   height: 130px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   color: var(--text-secondary);
   background-color: var(--background-secondary);
   border-radius: var(--border-radius);
-  -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
   overflow: hidden;
-  -webkit-transition: 0.15s;
   transition: 0.15s;
 }
 body main #spotify .spotify img {
