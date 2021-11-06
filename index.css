@@ -208,21 +208,21 @@ main {
   padding: 30px 30px 0.5px 30px;
   background-color: var(--background-tertiary);
 }
-main #themes-header {
+main .themes-header {
   margin-bottom: 20px;
 }
-main #themes-header > div {
+main .themes-header > div {
   display: flex;
 }
-main #themes-header > div img {
+main .themes-header > div img {
   width: 40px;
 }
-main #themes-header > div h4 {
+main .themes-header > div h4 {
   font-size: 1.5em;
   color: var(--text-tertiary);
   margin-left: 10px;
 }
-main #themes-header .separator {
+main .themes-header .separator {
   position: relative;
   top: -4px;
   left: 23px;
@@ -231,13 +231,13 @@ main #themes-header .separator {
   background-color: var(--text-tertiary);
   border-radius: var(--border-radius);
 }
-main #themes {
+main .themes {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
   grid-gap: 25px;
   margin-bottom: 40px;
 }
-main #themes .theme {
+main .themes .theme {
   position: relative;
   max-width: 700px;
   color: var(--text-secondary);
@@ -246,11 +246,11 @@ main #themes .theme {
   box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
   overflow: hidden;
 }
-main #themes .theme img {
+main .themes .theme img {
   width: 100%;
   height: 100%;
 }
-main #themes .theme h2 {
+main .themes .theme h2 {
   position: absolute;
   bottom: -55px;
   left: 0;
@@ -261,7 +261,7 @@ main #themes .theme h2 {
   border-radius: 0 0 var(--border-radius) var(--border-radius);
   transition: bottom 0.15s;
 }
-main #themes .theme:hover h2 {
+main .themes .theme:hover h2 {
   bottom: 0;
 }
 main #spotify-header {
@@ -333,7 +333,7 @@ body h1, body h2, body h3, body h4, body div, body ::placeholder {
   body #popout {
     transform: scale(0.9);
   }
-  body #themes {
+  body .themes {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 }

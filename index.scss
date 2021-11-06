@@ -26,7 +26,7 @@ body {
     // Responsive
     @media (max-width: 570px) {
        #popout { transform: scale(0.9);}
-        #themes { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));}
+        .themes { grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));}
     }
 
     // Links
