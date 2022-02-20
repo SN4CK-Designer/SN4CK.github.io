@@ -1,9 +1,7 @@
 header {
   position: relative;
-  z-index: 1;
   height: 100vh; min-height: 850px;
   background: url(/stuff/background.jpg);
-  pointer-events: none;
 
   & > div {
     display: flex;
@@ -14,7 +12,7 @@ header {
     #popout {
       position: absolute; display: flex;
       flex-direction: column;
-      top: 50px; width: 400px; z-index: -1;
+      top: 50px; width: 400px;
       background-color: var(--background-tertiary);
       border-radius: var(--border-radius);
       overflow: hidden;
@@ -26,7 +24,7 @@ header {
 
       .popout-header {
         width: 100%; height: 13%; min-height: 140px;
-        background: url(https://i.imgur.com/hGq0tR0.gif) center/cover no-repeat;
+        background: url('https://i.imgur.com/hGq0tR0.gif') center/cover no-repeat;
       }
 
       .popout-body {
